@@ -3,7 +3,7 @@
 <head>
   <meta charset='UTF-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>KOORA ZONE - موقعك الرياضي الأول</title>
+  <title>KOORA ZONE - الموقع الرياضي المغربي</title>
   <style>
     /* الأساسيات */
     body {
@@ -11,51 +11,49 @@
       margin: 0;
       padding: 0;
       background: #fff;
-      line-height: 1.6;
-      color: #333;
     }
     
-    /* الهيدر المعدل */
+    /* الهيدر - أحمر مغربي */
     .main-header {
-      background: #0a1f5c;
-      padding: 25px 0;
-      text-align: center;
+      background: #C1272D;
+      padding: 20px 0;
+      text-align: right;
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: relative;
     }
     
     .site-title {
-      color: #fff;
-      font-size: 32px;
-      margin: 0;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      color: white;
+      font-size: 26px;
+      margin: 0 20px 0 0;
+      font-weight: bold;
+      display: inline-block;
     }
     
-    /* الشريط الفاصل */
+    /* الشريط الفاصل - أزرق مغربي */
     .header-divider {
       height: 4px;
-      background: #000;
+      background: #1D5B9E;
       width: 100%;
     }
     
-    /* شريط القوائم المحسّن */
+    /* شريط القوائم - رمادي غامق */
     .main-nav {
       background: #f5f5f5;
-      padding: 15px 0;
-      text-align: center;
+      padding: 12px 0;
       border-bottom: 1px solid #ddd;
     }
     
+    /* تعديلات القوائم الجديدة */
     .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding-left: 30px; /* إزاحة لليسار */
     }
     
     .nav-links {
       display: flex;
+      justify-content: flex-start; /* المحاذاة لليسار */
       margin: 0;
       padding: 0;
       list-style: none;
@@ -69,15 +67,16 @@
       color: #333;
       text-decoration: none;
       font-weight: bold;
-      font-size: 16px;
-      padding: 8px 12px;
+      font-size: 13px;
+      padding: 6px 10px;
       border-radius: 4px;
       transition: all 0.3s ease;
+      display: block;
     }
     
     .nav-links a:hover {
-      background: #0a1f5c;
-      color: #fff;
+      background: #2E8B57;
+      color: white;
     }
     
     /* المحتوى الرئيسي */
@@ -85,27 +84,7 @@
       padding: 30px;
       max-width: 1200px;
       margin: 0 auto;
-    }
-    
-    /* التجاوب مع الشاشات الصغيرة */
-    @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: column;
-      }
-      
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 15px;
-      }
-      
-      .nav-links li {
-        margin: 5px;
-      }
-      
-      .site-title {
-        font-size: 28px;
-      }
+      text-align: center;
     }
   </style>
 </head>
@@ -118,7 +97,7 @@
   <!-- الشريط الفاصل -->
   <div class='header-divider'></div>
   
-  <!-- شريط التنقل المحسّن -->
+  <!-- شريط التنقل -->
   <nav class='main-nav'>
     <div class='nav-container'>
       <ul class='nav-links'>
@@ -135,7 +114,7 @@
   <main class='main-content'>
     <article>
       <h2>مرحباً بكم في KOORA ZONE</h2>
-      <p>موقعكم المتخصص في تغطية أخبار كرة القدم العربية والعالمية بمهنية واحترافية.</p>
+      <p>الموقع المغربي الأول المتخصص في تغطية أخبار كرة القدم!</p>
     </article>
   </main>
 </body>
