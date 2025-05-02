@@ -6,16 +6,20 @@
   <title>KOORA ZONE - الموقع الرياضي المغربي</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* الأساسيات */
+    /* الأساسيات المشتركة */
     :root {
       --bg-color: #fff;
       --text-color: #333;
       --header-color: #C1272D;
+      --accent-color: #1D5B9E;
+      --hover-color: #2E8B57;
+      --card-bg: #f5f5f5;
     }
     .dark-mode {
       --bg-color: #1a1a1a;
       --text-color: #f0f0f0;
       --header-color: #8B0000;
+      --card-bg: #1e1e1e;
     }
     body {
       font-family: 'Arial', Tahoma, sans-serif;
@@ -25,12 +29,17 @@
       color: var(--text-color);
       transition: all 0.3s ease;
     }
+
+    /* ========= نسخة الكمبيوتر ========= */
+    .desktop-view {
+      display: block;
+    }
     
     /* الهيدر - أحمر مغربي */
     .main-header {
       background: var(--header-color);
       padding: 20px 0;
-      text-align: center; /* تعديل المحاذاة */
+      text-align: right;
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
       position: relative;
     }
@@ -38,21 +47,21 @@
     .site-title {
       color: white;
       font-size: 26px;
-      margin: 0;
+      margin: 0 20px 0 0;
       font-weight: bold;
-      display: block; /* تعديل لعرض العنوان ككتلة */
+      display: inline-block;
     }
     
     /* شريط الفاصل - أزرق مغربي */
     .header-divider {
       height: 4px;
-      background: #1D5B9E;
+      background: var(--accent-color);
       width: 100%;
     }
     
     /* شريط القوائم - رمادي غامق */
     .main-nav {
-      background: #f5f5f5;
+      background: var(--card-bg);
       padding: 12px 0;
       border-bottom: 1px solid #ddd;
     }
@@ -76,7 +85,7 @@
     }
     
     .nav-links a {
-      color: #333;
+      color: var(--text-color);
       text-decoration: none;
       font-weight: bold;
       font-size: 13px;
@@ -87,16 +96,37 @@
     }
     
     .nav-links a:hover {
-      background: #2E8B57;
+      background: var(--hover-color);
       color: white;
     }
     
-    /* المحتوى الرئيسي */
-    .main-content {
-      padding: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
+    /* شريط البحث */
+    .search-bar {
+      position: absolute;
+      left: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      width: 250px;
+    }
+    .search-bar input {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 20px 0 0 20px;
+      width: 100%;
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+    .search-bar input::placeholder {
+      color: rgba(255,255,255,0.7);
+    }
+    .search-bar button {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 0 20px 20px 0;
+      padding: 0 15px;
+      cursor: pointer;
     }
     
     /* زر الثيم */
@@ -112,6 +142,98 @@
       transform: translateY(-50%);
     }
     
+    /* ========= نسخة الهاتف ========= */
+    .mobile-view {
+      display: none;
+    }
+    
+    @media (max-width: 768px) {
+      .desktop-view {
+        display: none;
+      }
+      
+      .mobile-view {
+        display: block;
+      }
+      
+      /* هيدر الهاتف */
+      .mobile-header {
+        background: var(--header-color);
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 2px solid var(--accent-color);
+      }
+      
+      .mobile-title {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        margin-right: 15px;
+      }
+      
+      /* قائمة الهاتف */
+      .mobile-menu-container {
+        position: relative;
+      }
+      
+      .mobile-menu-btn {
+        color: white;
+        font-size: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .mobile-dropdown {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100%;
+        background: var(--card-bg);
+        box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+        transition: right 0.3s;
+        z-index: 101;
+        padding-top: 60px;
+      }
+      
+      .mobile-dropdown.active {
+        right: 0;
+      }
+      
+      .mobile-dropdown a {
+        display: block;
+        padding: 15px;
+        color: var(--text-color);
+        text-decoration: none;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      .mobile-dropdown a:hover {
+        background: var(--hover-color);
+        color: white;
+      }
+      
+      /* إخفاء بعض العناصر غير الضرورية في الهاتف */
+      .floating-social,
+      .scroll-top {
+        display: none !important;
+      }
+    }
+    
+    /* العناصر المشتركة */
+    .main-content {
+      padding: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
     /* أيقونات اجتماعية عائمة */
     .floating-social {
       position: fixed;
@@ -124,7 +246,7 @@
       z-index: 100;
     }
     .floating-social a {
-      background: #C1272D;
+      background: var(--header-color);
       color: white;
       width: 40px;
       height: 40px;
@@ -146,7 +268,7 @@
       right: 30px;
       width: 50px;
       height: 50px;
-      background: #1D5B9E;
+      background: var(--accent-color);
       color: white;
       border: none;
       border-radius: 50%;
@@ -161,31 +283,61 @@
   </style>
 </head>
 <body>
-  <!-- الهيدر الجديد بدون شريط البحث -->
-  <header class='main-header'>
-    <button class="theme-toggle" onclick="toggleTheme()">
-      <i class="fas fa-moon"></i>
-    </button>
-    <h1 class='site-title'>KOORA ZONE</h1>
-  </header>
-  
-  <!-- الشريط الفاصل -->
-  <div class='header-divider'></div>
-  
-  <!-- شريط التنقل -->
-  <nav class='main-nav'>
-    <div class='nav-container'>
-      <ul class='nav-links'>
-        <li><a href='/'>الرئيسية</a></li>
-        <li><a href='/p/news'>الأخبار</a></li>
-        <li><a href='/p/teams'>أبرز الفرق</a></li>
-        <li><a href='/p/leagues'>الدوريات</a></li>
-        <li><a href='/p/matches'>مباريات اليوم</a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  <!-- منطقة المحتوى -->
+  <!-- ========= نسخة الكمبيوتر ========= -->
+  <div class="desktop-view">
+    <!-- الهيدر -->
+    <header class='main-header'>
+      <div class="search-bar">
+        <input type="text" placeholder="ابحث عن أخبار، فرق، أو دوريات...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+      </button>
+      <h1 class='site-title'>KOORA ZONE</h1>
+    </header>
+    
+    <!-- الشريط الفاصل -->
+    <div class='header-divider'></div>
+    
+    <!-- شريط التنقل -->
+    <nav class='main-nav'>
+      <div class='nav-container'>
+        <ul class='nav-links'>
+          <li><a href='/'>الرئيسية</a></li>
+          <li><a href='/p/news'>الأخبار</a></li>
+          <li><a href='/p/teams'>أبرز الفرق</a></li>
+          <li><a href='/p/leagues'>الدوريات</a></li>
+          <li><a href='/p/matches'>مباريات اليوم</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ========= نسخة الهاتف ========= -->
+  <div class="mobile-view">
+    <!-- الهيدر -->
+    <header class="mobile-header">
+      <div class="mobile-title">KOORA ZONE</div>
+      <div class="mobile-menu-container">
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="mobile-dropdown" id="mobileMenu">
+          <a href="/"><i class="fas fa-home"></i> الرئيسية</a>
+          <a href="/news"><i class="fas fa-newspaper"></i> الأخبار</a>
+          <a href="/teams"><i class="fas fa-users"></i> أبرز الفرق</a>
+          <a href="/leagues"><i class="fas fa-trophy"></i> الدوريات</a>
+          <a href="/matches"><i class="fas fa-futbol"></i> المباريات</a>
+          <button class="theme-toggle-mobile" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i> تبديل المظهر
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- المحتوى الرئيسي (مشترك) -->
   <main class='main-content'>
     <article>
       <h2>مرحباً بكم في KOORA ZONE</h2>
@@ -193,14 +345,13 @@
     </article>
   </main>
 
-  <!-- أيقونات اجتماعية عائمة -->
+  <!-- العناصر المشتركة -->
   <div class="floating-social">
     <a href="#"><i class="fab fa-facebook"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
     <a href="#"><i class="fab fa-instagram"></i></a>
   </div>
 
-  <!-- زر العودة للأعلى -->
   <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
     <i class="fas fa-arrow-up"></i>
   </button>
@@ -210,7 +361,8 @@
     // تبديل الثيم
     function toggleTheme() {
       document.body.classList.toggle('dark-mode');
-      const icon = document.querySelector('.theme-toggle i');
+      const icon = document.querySelector('.theme-toggle i') || 
+                  document.querySelector('.theme-toggle-mobile i');
       if (document.body.classList.contains('dark-mode')) {
         icon.classList.replace('fa-moon', 'fa-sun');
       } else {
@@ -221,10 +373,27 @@
     // زر العودة للأعلى
     window.addEventListener('scroll', function() {
       const scrollBtn = document.querySelector('.scroll-top');
-      if (window.scrollY > 300) {
+      if (scrollBtn && window.scrollY > 300) {
         scrollBtn.classList.add('visible');
-      } else {
+      } else if (scrollBtn) {
         scrollBtn.classList.remove('visible');
+      }
+    });
+
+    // قائمة الهاتف
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+
+    // إغلاق القائمة عند النقر خارجها
+    document.addEventListener('click', function(e) {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      
+      if (mobileMenu && menuBtn && 
+          !mobileMenu.contains(e.target) && 
+          !menuBtn.contains(e.target)) {
+        mobileMenu.classList.remove('active');
       }
     });
   </script>
