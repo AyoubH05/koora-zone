@@ -1,62 +1,78 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang='ar' dir='rtl'>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>موقعي الإخباري</title>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>KOORA ZONE - الموقع الرياضي المغربي</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-  <!-- رأس الصفحة -->
-  <header class="main-header desktop-view">
-    <button class="theme-toggle" onclick="toggleTheme()">
-      <i class="fas fa-moon"></i>
-    </button>
-    <h1 class="site-title">موقعي الإخباري</h1>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="ابحث في الأخبار...">
-      <button><i class="fas fa-search"></i></button>
-    </div>
-    <div class="header-divider"></div>
-  </header>
-
-  <!-- رأس الهاتف -->
-  <header class="mobile-header mobile-view">
-    <span class="mobile-title">موقعي الإخباري</span>
-    <div class="mobile-menu-container">
-      <button class="theme-toggle-mobile" onclick="toggleTheme()">
+  <!-- ===== نسخة الكمبيوتر ===== -->
+  <div class="desktop-view">
+    <header class='main-header'>
+      <div class="search-bar">
+        <input type="text" placeholder="ابحث عن أخبار، فرق، أو دوريات...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon"></i>
       </button>
-      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </header>
-
-  <!-- قائمة الهاتف المنسدلة -->
-  <div class="mobile-dropdown" id="mobileMenu">
-    <a href="#">الرئيسية</a>
-    <a href="#">رياضة</a>
-    <a href="#">اقتصاد</a>
-    <a href="#">سياسة</a>
+      <h1 class='site-title'>KOORA ZONE</h1>
+    </header>
+    <div class='header-divider'></div>
+    <nav class='main-nav'>
+      <div class='nav-container'>
+        <ul class='nav-links'>
+          <li><a href='/'>الرئيسية</a></li>
+          <li><a href='/news'>الأخبار</a></li>
+          <li><a href='/teams'>أبرز الفرق</a></li>
+          <li><a href='/leagues'>الدوريات</a></li>
+          <li><a href='/matches'>المباريات</a></li>
+        </ul>
+      </div>
+    </nav>
   </div>
 
-  <!-- المحتوى الرئيسي -->
+  <!-- ===== نسخة الهاتف ===== -->
+  <div class="mobile-view">
+    <header class="mobile-header">
+      <div class="mobile-title">KOORA ZONE</div>
+      <div class="mobile-menu-container">
+        <button class="theme-toggle-mobile" onclick="toggleTheme()">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="mobile-dropdown" id="mobileMenu">
+          <a href="/"><i class="fas fa-home"></i> الرئيسية</a>
+          <a href="/news"><i class="fas fa-newspaper"></i> الأخبار</a>
+          <a href="/teams"><i class="fas fa-users"></i> أبرز الفرق</a>
+          <a href="/leagues"><i class="fas fa-trophy"></i> الدوريات</a>
+          <a href="/matches"><i class="fas fa-futbol"></i> المباريات</a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- ===== محتوى الأخبار ===== -->
   <main class="main-content">
     <section class="news-section">
-      <h2 class="section-title"><i class="fas fa-newspaper"></i> آخر الأخبار</h2>
-      <div class="news-grid" id="newsContainer"></div>
-      <div class="more-news">
-        <button class="more-btn" id="loadMoreBtn">تحميل المزيد</button>
+      <h2 class="section-title"><i class="fas fa-newspaper"></i> الأخبار</h2>
+      <div class="news-grid" id="newsContainer">
+        <!-- سيتم ملؤها بواسطة scripts.js -->
       </div>
     </section>
+    
+    <div class="more-news">
+      <a href="/news" class="more-btn">عرض المزيد من الأخبار <i class="fas fa-arrow-left"></i></a>
+    </div>
   </main>
 
-  <!-- أزرار ثابتة -->
+  <!-- ===== العناصر المشتركة ===== -->
   <div class="floating-social">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
     <a href="#"><i class="fab fa-instagram"></i></a>
   </div>
